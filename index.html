@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anihuyna - Лучшая озвучка аниме</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #00c8ff;
+            --primary-dark: #0099cc;
+            --secondary: #ff6b6b;
+            --dark: #1a1a2e;
+            --darker: #0d0d1a;
+            --light: #f0f8ff;
+            --gray: #8a8a9e;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--darker), var(--dark));
+            color: var(--light);
+            min-height: 100vh;
+        }
+        
+        /* Header Styles */
+        header {
+            background: rgba(10, 10, 20, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .logo-circle {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--darker);
+            font-weight: 800;
+        }
+        
+        nav ul {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+        
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover, nav a.active {
+            background: var(--primary);
+            color: var(--darker);
+        }
+        
+        .search-bar {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .search-bar input {
+            padding: 0.7rem 1rem;
+            border: none;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            width: 250px;
+            outline: none;
+        }
+        
+        .search-bar button {
+            background: var(--primary);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--darker);
+            font-size: 1.2rem;
+        }
+        
+        .user-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .btn {
+            padding: 0.7rem 1.5rem;
+            border-radius: 30px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: var(--darker);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 200, 255, 0.4);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1635189779577-555de60a72e0?ixlib=rb-4.0.3') center/cover;
+            position: relative;
+            border-bottom: 3px solid var(--primary);
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: var(--gray);
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .section-title i {
+            color: var(--primary);
+        }
+        
+        /* Genre Navigation */
+        .genres {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .genre {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .genre:hover, .genre.active {
+            background: var(--primary);
+            color: var(--darker);
+        }
+        
+        /* Anime Grid */
+        .anime-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .anime-card {
+            background: rgba(30, 30, 46, 0.8);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .anime-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 200, 255, 0.2);
+        }
+        
+        .anime-thumb {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .anime-info {
+            padding: 1.5rem;
+        }
+        
+        .anime-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .anime-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .rating {
+            color: #ffd700;
+        }
+        
+        .anime-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .action-btn {
+            flex: 1;
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 5px;
+            color: var(--light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .action-btn:hover {
+            background: var(--primary);
+            color: var(--darker);
+        }
+        
+        /* Video Player Section */
+        .video-section {
+            background: rgba(20, 20, 35, 0.9);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 3rem 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .video-container {
+            position: relative;
+            padding-top: 56.25%;
+            background: #000;
+        }
+        
+        .video-player {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .video-info {
+            padding: 1.5rem;
+        }
+        
+        .video-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .video-description {
+            color: var(--gray);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .video-meta {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Comments Section */
+        .comments-section {
+            background: rgba(30, 30, 46, 0.8);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .comment-form {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .comment-input {
+            flex: 1;
+            padding: 1rem;
+            border-radius: 10px;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            resize: none;
+            height: 100px;
+        }
+        
+        .comment-submit {
+            background: var(--primary);
+            color: var(--darker);
+            border: none;
+            border-radius: 10px;
+            padding: 0 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        .comment-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .comment {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 10px;
+        }
+        
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+        
+        .comment-user {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            color: var(--darker);
+        }
+        
+        .comment-date {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .comment-content {
+            line-height: 1.6;
+        }
+        
+        /* Admin Panel */
+        .admin-panel {
+            background: rgba(20, 20, 35, 0.95);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .admin-controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .control-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .control-card:hover {
+            background: rgba(0, 200, 255, 0.1);
+            transform: translateY(-5px);
+        }
+        
+        .control-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .control-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            color: var(--darker);
+        }
+        
+        .control-description {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        /* Footer */
+        footer {
+            background: rgba(10, 10, 20, 0.9);
+            padding: 3rem 2rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .footer-about {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+        
+        .footer-links h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            color: var(--darker);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray);
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            nav ul {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .search-bar input {
+                width: 180px;
+            }
+            
+            .user-actions {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <div class="logo-circle">A</div>
+            <span>nihuyna</span>
+        </div>
+        
+        <nav>
+            <ul>
+                <li><a href="#" class="active">Главная</a></li>
+                <li><a href="#">Аниме</a></li>
+                <li><a href="#">Новинки</a></li>
+                <li><a href="#">Популярное</a></li>
+                <li><a href="#">Новости</a></li>
+                <li><a href="#">Форум</a></li>
+            </ul>
+        </nav>
+        
+        <div class="search-bar">
+            <input type="text" placeholder="Поиск аниме...">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+        
+        <div class="user-actions">
+            <button class="btn btn-secondary"><i class="fas fa-user"></i> Войти</button>
+            <button class="btn btn-primary"><i class="fas fa-user-plus"></i> Регистрация</button>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Смотрите аниме с лучшей озвучкой</h1>
+        <p>Anihuyna представляет эксклюзивные озвучки популярных аниме. Присоединяйтесь к нашему сообществу и наслаждайтесь просмотром!</p>
+        
+        <div class="hero-buttons">
+            <button class="btn btn-primary"><i class="fas fa-play"></i> Начать просмотр</button>
+            <button class="btn btn-secondary"><i class="fas fa-info-circle"></i> Узнать больше</button>
+        </div>
+    </section>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Genre Navigation -->
+        <div class="genres">
+            <div class="genre active">Все</div>
+            <div class="genre">Боевик</div>
+            <div class="genre">Романтика</div>
+            <div class="genre">Фэнтези</div>
+            <div class="genre">Комедия</div>
+            <div class="genre">Драма</div>
+            <div class="genre">Приключения</div>
+            <div class="genre">Сёнэн</div>
+            <div class="genre">Сёдзё</div>
+            <div class="genre">Триллер</div>
+        </div>
+        
+        <!-- Featured Anime -->
+        <h2 class="section-title"><i class="fas fa-fire"></i> Популярное сейчас</h2>
+        <div class="anime-grid">
+            <!-- Anime Card 1 -->
+            <div class="anime-card">
+                <img src="https://images.unsplash.com/photo-1548802673-380ab8ebc7b7?ixlib=rb-4.0.3" alt="Attack on Titan" class="anime-thumb">
+                <div class="anime-info">
+                    <h3 class="anime-title">Атака Титанов</h3>
+                    <div class="anime-meta">
+                        <span>2023</span>
+                        <span class="rating"><i class="fas fa-star"></i> 9.8</span>
+                    </div>
+                    <div class="anime-actions">
+                        <button class="action-btn"><i class="fas fa-play"></i> Смотреть</button>
+                        <button class="action-btn"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Anime Card 2 -->
+            <div class="anime-card">
+                <img src="https://images.unsplash.com/photo-1548802673-380ab8ebc7b7?ixlib=rb-4.0.3" alt="Demon Slayer" class="anime-thumb">
+                <div class="anime-info">
+                    <h3 class="anime-title">Клинок, рассекающий демонов</h3>
+                    <div class="anime-meta">
+                        <span>2023</span>
+                        <span class="rating"><i class="fas fa-star"></i> 9.5</span>
+                    </div>
+                    <div class="anime-actions">
+                        <button class="action-btn"><i class="fas fa-play"></i> Смотреть</button>
+                        <button class="action-btn"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Anime Card 3 -->
+            <div class="anime-card">
+                <img src="https://images.unsplash.com/photo-1548802673-380ab8ebc7b7?ixlib=rb-4.0.3" alt="Jujutsu Kaisen" class="anime-thumb">
+                <div class="anime-info">
+                    <h3 class="anime-title">Магическая битва</h3>
+                    <div class="anime-meta">
+                        <span>2023</span>
+                        <span class="rating"><i class="fas fa-star"></i> 9.3</span>
+                    </div>
+                    <div class="anime-actions">
+                        <button class="action-btn"><i class="fas fa-play"></i> Смотреть</button>
+                        <button class="action-btn"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Anime Card 4 -->
+            <div class="anime-card">
+                <img src="https://images.unsplash.com/photo-1548802673-380ab8ebc7b7?ixlib=rb-4.0.3" alt="One Piece" class="anime-thumb">
+                <div class="anime-info">
+                    <h3 class="anime-title">Ван Пис</h3>
+                    <div class="anime-meta">
+                        <span>2023</span>
+                        <span class="rating"><i class="fas fa-star"></i> 9.7</span>
+                    </div>
+                    <div class="anime-actions">
+                        <button class="action-btn"><i class="fas fa-play"></i> Смотреть</button>
+                        <button class="action-btn"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- New Releases -->
+        <h2 class="section-title"><i class="fas fa-bolt"></i> Новинки</h2>
+        <div class="anime-grid">
+            <!-- Anime Card 5 -->
+            <div class="anime-card">
+                <img src="https://images.unsplash.com/photo-1548802673-380ab8ebc7b7?ixlib=rb-4.0.3" alt="Spy x Family" class="anime-thumb">
+                <div class="anime-info">
+                    <h3 class="anime-title">Шпион x Семья</h3>
+                    <div class="anime-meta">
+                        <span>2023</span>
+                        <span class="rating"><i class="fas fa-star"></i> 9.4</span>
+                    </div>
+                    <div class="anime-actions">
+                        <button class="action-btn"><i class="fas fa-play"></i> Смотреть</button>
+                        <button class="action-btn"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Anime Card 6 -->
+            <div class="anime-card">
+                <img src="https://images.unsplash.com/photo-1548802673-380ab8ebc7b7?ixlib=rb-4.0.3" alt="Chainsaw Man" class="anime-thumb">
+                <div class="anime-info">
+                    <h3 class="anime-title">Человек-бензопила</h3>
+                    <div class="anime-meta">
+                        <span>2023</span>
+                        <span class="rating"><i class="fas fa-star"></i> 9.6</span>
+                    </div>
+                    <div class="anime-actions">
+                        <button class="action-btn"><i class="fas fa-play"></i> Смотреть</button>
+                        <button class="action-btn"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Anime Card 7 -->
+            <div class="anime-card">
+                <img src="https://images.unsplash.com/photo-1548802673-380ab8ebc7b7?ixlib=rb-4.0.3" alt="My Hero Academia" class="anime-thumb">
+                <div class="anime-info">
+                    <h3 class="anime-title">Моя геройская академия</h3>
+                    <div class="anime-meta">
+                        <span>2023</span>
+                        <span class="rating"><i class="fas fa-star"></i> 9.2</span>
+                    </div>
+                    <div class="anime-actions">
+                        <button class="action-btn"><i class="fas fa-play"></i> Смотреть</button>
+                        <button class="action-btn"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Anime Card 8 -->
+            <div class="anime-card">
+                <img src="https://images.unsplash.com/photo-1548802673-380ab8ebc7b7?ixlib=rb-4.0.3" alt="Vinland Saga" class="anime-thumb">
+                <div class="anime-info">
+                    <h3 class="anime-title">Сага о Винланде</h3>
+                    <div class="anime-meta">
+                        <span>2023</span>
+                        <span class="rating"><i class="fas fa-star"></i> 9.5</span>
+                    </div>
+                    <div class="anime-actions">
+                        <button class="action-btn"><i class="fas fa-play"></i> Смотреть</button>
+                        <button class="action-btn"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Video Player Section -->
+        <div class="video-section">
+            <div class="video-container">
+                <iframe class="video-player" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Anime Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-info">
+                <h2 class="video-title">Атака Титанов - Финал: Часть 3</h2>
+                <p class="video-description">Эрен Йегер достиг своей окончательной формы и продолжает двигаться вперед, пока не уничтожит всех своих врагов. Микаса, Армин и их товарищи должны найти способ остановить Эрена, прежде чем он уничтожит весь мир за стенами.</p>
+                
+                <div class="video-meta">
+                    <div class="meta-item">
+                        <i class="fas fa-calendar"></i>
+                        <span>Вышло: 15.10.2023</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Длительность: 1ч 25м</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-star"></i>
+                        <span>Рейтинг: 9.8/10</span>
+                    </div>
+                </div>
+                
+                <div class="anime-actions">
+                    <button class="action-btn"><i class="fas fa-thumbs-up"></i> Нравится</button>
+                    <button class="action-btn"><i class="fas fa-thumbs-down"></i> Не нравится</button>
+                    <button class="action-btn"><i class="fas fa-bookmark"></i> В избранное</button>
+                    <button class="action-btn"><i class="fas fa-share"></i> Поделиться</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Comments Section -->
+        <div class="comments-section">
+            <h2 class="section-title"><i class="fas fa-comments"></i> Комментарии</h2>
+            
+            <div class="comment-form">
+                <textarea class="comment-input" placeholder="Добавьте ваш комментарий..."></textarea>
+                <button class="comment-submit">Отправить</button>
+            </div>
+            
+            <div class="comment-list">
+                <!-- Comment 1 -->
+                <div class="comment">
+                    <div class="comment-header">
+                        <div class="comment-user">
+                            <div class="user-avatar">A</div>
+                            <div>
+                                <strong>AnimeFan23</strong>
+                                <div class="rating"><i class="fas fa-star"></i> 10/10</div>
+                            </div>
+                        </div>
+                        <div class="comment-date">2 часа назад</div>
+                    </div>
+                    <p class="comment-content">Это был невероятный финал! Озвучка Anihuyna как всегда на высоте. Особенно впечатлила работа над голосом Эрена - передали все эмоции персонажа.</p>
+                </div>
+                
+                <!-- Comment 2 -->
+                <div class="comment">
+                    <div class="comment-header">
+                        <div class="comment-user">
+                            <div class="user-avatar">S</div>
+                            <div>
+                                <strong>SamuraiX</strong>
+                                <div class="rating"><i class="fas fa-star"></i> 9/10</div>
+                            </div>
+                        </div>
+                        <div class="comment-date">5 часов назад</div>
+                    </div>
+                    <p class="comment-content">Ожидал большего от финала, но озвучка просто великолепна. Спасибо Anihuyna за их работу! Теперь жду продолжения с нетерпением.</p>
+                </div>
+                
+                <!-- Comment 3 -->
+                <div class="comment">
+                    <div class="comment-header">
+                        <div class="comment-user">
+                            <div class="user-avatar">K</div>
+                            <div>
+                                <strong>Kitsune</strong>
+                                <div class="rating"><i class="fas fa-star"></i> 10/10</div>
+                            </div>
+                        </div>
+                        <div class="comment-date">Вчера</div>
+                    </div>
+                    <p class="comment-content">Это шедевр! Никогда не думал, что аниме может быть настолько глубоким и эмоциональным. Озвучка Anihuyna сделала просмотр еще более захватывающим.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Admin Panel -->
+        <div class="admin-panel">
+            <h2 class="section-title"><i class="fas fa-lock"></i> Административная панель</h2>
+            
+            <div class="admin-controls">
+                <div class="control-card">
+                    <div class="control-title">
+                        <div class="control-icon">
+                            <i class="fas fa-upload"></i>
+                        </div>
+                        <h3>Загрузка видео</h3>
+                    </div>
+                    <p class="control-description">Загружайте новые эпизоды и фильмы на сайт. Поддерживаются все популярные форматы видео.</p>
+                    <button class="btn btn-primary">Загрузить видео</button>
+                </div>
+                
+                <div class="control-card">
+                    <div class="control-title">
+                        <div class="control-icon">
+                            <i class="fas fa-newspaper"></i>
+                        </div>
+                        <h3>Управление новостями</h3>
+                    </div>
+                    <p class="control-description">Создавайте и редактируйте новости сайта. Уведомляйте пользователей о новых релизах и событиях.</p>
+                    <button class="btn btn-primary">Добавить новость</button>
+                </div>
+                
+                <div class="control-card">
+                    <div class="control-title">
+                        <div class="control-icon">
+                            <i class="fas fa-users-cog"></i>
+                        </div>
+                        <h3>Управление пользователями</h3>
+                    </div>
+                    <p class="control-description">Управляйте учетными записями пользователей, назначайте роли и разрешения.</p>
+                    <button class="btn btn-primary">Открыть список</button>
+                </div>
+                
+                <div class="control-card">
+                    <div class="control-title">
+                        <div class="control-icon">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <h3>Настройки сайта</h3>
+                    </div>
+                    <p class="control-description">Изменяйте дизайн и функционал сайта. Настраивайте главную страницу и разделы.</p>
+                    <button class="btn btn-primary">Настроить сайт</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <div class="logo-circle">A</div>
+                    <span>nihuyna</span>
+                </div>
+                <p class="footer-about">Anihuyna - это платформа для просмотра аниме с высококачественной озвучкой. Мы предлагаем эксклюзивный контент и создаем сообщество любителей аниме.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-vk"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Разделы</h3>
+                <ul>
+                    <li><a href="#">Главная</a></li>
+                    <li><a href="#">Аниме</a></li>
+                    <li><a href="#">Новинки</a></li>
+                    <li><a href="#">Популярное</a></li>
+                    <li><a href="#">Новости</a></li>
+                    <li><a href="#">Форум</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Помощь</h3>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Правила сайта</a></li>
+                    <li><a href="#">Обратная связь</a></li>
+                    <li><a href="#">Партнерство</a></li>
+                    <li><a href="#">Реклама</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Аккаунт</h3>
+                <ul>
+                    <li><a href="#">Войти</a></li>
+                    <li><a href="#">Регистрация</a></li>
+                    <li><a href="#">Восстановить доступ</a></li>
+                    <li><a href="#">Настройки профиля</a></li>
+                    <li><a href="#">Премиум подписка</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            &copy; 2023 Anihuyna. Все права защищены. Любое копирование материалов без разрешения запрещено.
+        </div>
+    </footer>
+    
+    <script>
+        // Основной функционал сайта
+        document.addEventListener('DOMContentLoaded', function() {
+            // Регистрация/вход
+            const loginBtn = document.querySelector('.btn-secondary');
+            const registerBtn = document.querySelector('.btn-primary');
+            
+            loginBtn.addEventListener('click', function() {
+                alert('Форма входа открыта. В реальном сайте здесь будет форма аутентификации.');
+            });
+            
+            registerBtn.addEventListener('click', function() {
+                alert('Форма регистрации открыта. В реальном сайте будет форма создания аккаунта с подтверждением по email.');
+            });
+            
+            // Переключение жанров
+            const genres = document.querySelectorAll('.genre');
+            genres.forEach(genre => {
+                genre.addEventListener('click', function() {
+                    genres.forEach(g => g.classList.remove('active'));
+                    this.classList.add('active');
+                    alert('Фильтрация по жанру: ' + this.textContent);
+                });
+            });
+            
+            // Оценка аниме
+            const ratingBtns = document.querySelectorAll('.action-btn:nth-child(1)');
+            ratingBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const animeTitle = this.closest('.anime-card').querySelector('.anime-title').textContent;
+                    alert('Начато воспроизведение: ' + animeTitle);
+                });
+            });
+            
+            // Отправка комментария
+            const commentSubmit = document.querySelector('.comment-submit');
+            commentSubmit.addEventListener('click', function() {
+                const commentInput = document.querySelector('.comment-input');
+                if (commentInput.value.trim() !== '') {
+                    alert('Комментарий отправлен! В реальном сайте он будет сохранен в базе данных.');
+                    commentInput.value = '';
+                } else {
+                    alert('Пожалуйста, напишите комментарий перед отправкой.');
+                }
+            });
+            
+            // Админ-панель
+            const adminBtns = document.querySelectorAll('.admin-panel .btn');
+            adminBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const action = this.closest('.control-card').querySelector('h3').textContent;
+                    alert('Админ-панель: ' + action + '. В реальном сайте откроется интерфейс управления.');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
